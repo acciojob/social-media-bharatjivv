@@ -1,13 +1,23 @@
-
 import React from "react";
-import './../styles/App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./Navbar";
+import Home from "../pages/Home";
+import Users from "../pages/Users";
+import NotificationsPage from "../pages/NotificationsPage";
+import PostDetail from "../pages/PostDetail";
 
-const App = () => {
+export default function App() {
   return (
-    <div>
-        {/* Do not remove the main div */}
+    <div className="App">
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/users" element={<Users />} />
+          <Route path="/notifications" element={<NotificationsPage />} />
+          <Route path="/posts/:id" element={<PostDetail />} />
+        </Routes>
+      </Router>
     </div>
-  )
+  );
 }
-
-export default App
