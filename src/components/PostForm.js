@@ -27,32 +27,34 @@ export default function PostForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        id="postTitle"
-        placeholder="Title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-      <select
-        id="postAuthor"
-        value={user}
-        onChange={(e) => setUser(e.target.value)}
-      >
-        <option value="">Select Author</option>
-        {users.map((u) => (
-          <option key={u} value={u}>
-            {u}
-          </option>
-        ))}
-      </select>
-      <textarea
-        id="postContent"
-        placeholder="Content"
-        value={content}
-        onChange={(e) => setContent(e.target.value)}
-      />
-      <button type="submit">Add Post</button>
-    </form>
+    <div className="post-form-container">
+      <form onSubmit={handleSubmit} className="post-form">
+        <input
+          id="postTitle"
+          placeholder="Title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <select
+          id="postAuthor"
+          value={user}
+          onChange={(e) => setUser(e.target.value)}
+        >
+          <option value="">Select Author</option>
+          {users.map((u) => (
+            <option key={u} value={u}>
+              {u}
+            </option>
+          ))}
+        </select>
+        <textarea
+          id="postContent"
+          placeholder="Content"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+        />
+        <button type="submit">Add Post</button>
+      </form>
+    </div>
   );
 }
